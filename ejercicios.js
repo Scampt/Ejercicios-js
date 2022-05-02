@@ -4,12 +4,12 @@
 // 1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
 function contarCaracteres(){
     let cadena = "Hola me gustan los tacos";
-    console.log(cadena.length);
+    console.log("El numero de caracteres de la cadena son " + cadena.length);
 }
 
 function contarCaracterArreglo(){
     let numeros = [1,2,3,4,5,6,6,7,4,21,41,14,1,341,3]
-    console.log(numeros.length);
+    console.log("El numero de de caracteres de un arreglo son " + numeros.length);
 }
 
 function contarCaracterObjeto(){
@@ -60,3 +60,63 @@ function saludar(){
 }
 
 saludar();
+
+// Ejercicio 5
+// 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+
+function cadenaInvertida(cadena = ""){
+    if (!cadena) {
+        console.warn("La cadena esta vacia");
+    } else {
+        let separarCadena = cadena.split("");
+        let invertirArreglo = separarCadena.reverse();
+        let unirArreglo = invertirArreglo.join("");
+    
+        console.info(unirArreglo);
+    }
+}
+
+const cadenaInvertida2 = (cadena = "") =>
+(!cadena) 
+    ?console.warn("La cadena esta vacia")
+    :console.info(cadena.split("").reverse().join(""));
+
+cadenaInvertida("Hola, soy la cadena 1");
+cadenaInvertida2("Hola, soy la cadena 2");
+
+
+//Ejercicio 6
+// 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+
+const palabraRepetida = (cadena, palabra) => typeof cadena !== "string" || typeof palabra !== "string"? "Tipo de dato invalido":
+cadena.match(new RegExp(palabra, "g")).length
+console.log(palabraRepetida("hola mundo adios mundo hola hola", "mundo"));
+
+
+
+
+
+// Ejercicio 7
+// 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+
+const palindromo = (cadena = "") =>
+(!cadena)
+    ? console.warn("No ingresaste ninguna frase")
+    : console.info(cadena.split("").reverse().join(""));
+    
+
+palindromo("salas");
+
+
+
+// Ejercicio 8
+// 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+
+const eliminarPatron = (cadena, patron) =>
+(!cadena)
+? console.warn("No ingresaste la cadena")
+: (!patron)
+    ? console.warn("no ingresaste el patron")
+    : console.log(cadena.replace(new RegExp(patron,"ig"),""));
+
+eliminarPatron("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
