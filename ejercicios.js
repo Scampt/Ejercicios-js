@@ -120,3 +120,38 @@ const eliminarPatron = (cadena, patron) =>
     : console.log(cadena.replace(new RegExp(patron,"ig"),""));
 
 eliminarPatron("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
+
+// 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
+
+const numeroRandom = console.log(Math.round(Math.random() * (500 - 600 + 1)) + 500);
+
+// 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true
+
+const esCapicua = (number) => {
+    if(typeof number !== typeof 5){
+        console.warn("No ingresaste un numero");
+    }else{
+        let inverso = Number(number.toString().split("").reverse().join(""));
+
+        (number !== inverso)
+        ? console.log(`El numero ${number} no es capicúa`):console.log(`El numero  ${number} es capicúa`); 
+    }          
+}
+
+esCapicua(30303)
+// 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+
+function Factorial(n) {
+    if (n === "") {
+        console.warn("No puedes escribir strings, solo números");
+    } else {
+        let total = 1;
+        for (let i = 1; i <= n; i++) {
+            total *= i
+        }
+        console.info(total);
+    }
+}
+
+Factorial(5);
+Factorial(10);
