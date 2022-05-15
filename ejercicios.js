@@ -155,3 +155,79 @@ function Factorial(n) {
 
 Factorial(5);
 Factorial(10);
+
+
+// 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+function esPrimo(numero) {
+    if (numero == undefined) {
+        console.warn("No ingresaste ningun dato");
+    }
+    else if (numero == "") {
+        console.warn("Por favor ingresa un valor numerico");
+    }
+    else {
+        let esDivisible = false
+
+        for (let i = 2; i < numero; i++) {
+            if (numero % i == 0) {
+                esDivisible = true;
+                break;
+            }
+        }
+            if (esDivisible) {
+                return console.log("El numero NO es primo")
+            } else {
+                return console.log("El numero SI es primo")
+            }
+        }
+    }
+
+// esPrimo()
+// esPrimo("")
+// esPrimo(7)
+
+
+
+// 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+function esParImpar (numero) {
+    if (numero == undefined) {
+    console.warn("No ingresaste ningun dato");
+}
+    else if (numero == "") {
+    console.warn("Por favor ingresa un valor numerico");
+} if ((numero % 2) === 0) {
+    console.log("El numero es PAR");
+} else {
+    console.log("El numero es IMPAR")
+}
+}
+
+
+esParImpar()
+esParImpar(13)
+
+
+// 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+
+
+
+function Grados(grados, unidad) {
+    if (grados == undefined) {
+        console.warn("No ingresaste grados a convertir");
+    }
+    else if (unidad === undefined) {
+        console.warn("No ingresaste el tipo de grado a convertir");
+    }
+
+    if (unidad === "C") {
+        console.info(`${grados}°C = ${Math.round(grados * (9/5) + 32)}°F`);
+    }
+    else if (unidad === "F") {
+        console.info(`${grados}°F = ${Math.round((((grados - 32) * (5/9)))) }°C`);
+    }
+}
+
+    Grados()
+    Grados(2)
+    Grados(100, "C")
+    Grados(100, "F")
