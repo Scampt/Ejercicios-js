@@ -231,3 +231,74 @@ function Grados(grados, unidad) {
     Grados(2)
     Grados(100, "C")
     Grados(100, "F")
+
+    // 15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+
+    function convertirNumeros (numero = undefined, base = undefined) {
+        if (numero === undefined) {
+            console.warn("No ingresaste el numero a convertir");
+        }
+        else if (typeof numero !== "number") {
+            console.error("El valor ingresado NO es un número");
+        }
+        else if (base === undefined) {
+            console.warn("No ingresaste la base a convertir");
+        }
+        else if (typeof base !== "number") {
+            console.error("El valor de la base NO es un número");
+        }
+        else if (base === 2) {
+            console.info(`El número ${numero} base ${base} = ${parseInt(numero, base)} en base 10`)
+        } else if (base === 10) {
+            console.info(`El número ${numero} base ${base} = ${numero.toString(base)} en base 2`)
+        } else {
+            console.error("El tipo de base ingresado no es valido");
+        }
+    }
+    convertirNumeros()
+    convertirNumeros("2")
+    convertirNumeros(2)
+    convertirNumeros(100)
+    convertirNumeros(100, "2")
+    convertirNumeros(101, 2)
+    convertirNumeros(4, 10)
+    convertirNumeros(114, 10)
+    convertirNumeros(300, 10)
+
+    // 16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+    function descuento(precio, descuento) {
+        if (precio === undefined) {
+            console.warn("No ingresaste ningun precio");
+        }
+        else if (typeof precio !== "number") {
+            console.error("No ingresaste un valor númerico");
+        }
+        else if (descuento === undefined) {
+            console.warn("No ingresaste ningun descuento");
+        }
+        else if (typeof descuento !== "number") {
+            console.error("No ingresaste un valor númerico");
+        } else {
+            console.log(`${precio} - ${descuento}% = ${precio - (precio * descuento)/100}`)
+        }
+    }
+
+    descuento()
+    descuento("")
+    descuento(100)
+    descuento("", 20)
+    descuento(1000, 20)
+    // 17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+
+const calculadoraDeAños = (anio,mes,dia) => {
+    if (isNaN(anio)||!anio||Math.sign(anio)==-1) return console.error ("Porfavor ingresa un año valido")
+    if (isNaN(mes)||!mes||Math.sign(mes)==-1||mes>12) return console.error ("Porfavor ingresa un mes valido")
+    if (isNaN(dia)||!dia||Math.sign(dia)==-1||dia>31) return console.error ("Porfavor ingresa una fecha valida")
+    
+    let fechaActual= new Date()
+    let fechaIngresada= new Date (anio,mes,dia) 
+    let dias = ((fechaActual - fechaIngresada)/(1000*60*60*24))
+
+    return console.log (`Desde el ${anio}/${mes}/${dia} han transcurrido ${Math.floor(dias/365)} años`)
+} 
+calculadoraDeAños(2000,11,21)
